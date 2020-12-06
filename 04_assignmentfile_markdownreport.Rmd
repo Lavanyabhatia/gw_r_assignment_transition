@@ -1,6 +1,6 @@
 ---
 title: "GW Assignment - Biden Transition"
-author: "YOUR NAME HERE"
+author: "Lavanya Bhatia"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: html_document
 ---
@@ -36,6 +36,13 @@ Below write code to show the new names added to the agency review team lists sin
 
 ```{r, echo=FALSE}
 
+newnames <- anti_join(transition_data_current, transition_data_previous, by = "idstring")
+
+newnames %>%
+  knitr::kable() %>%
+  kable_classic() %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "center", font_size = 12) %>%
+  row_spec(0, bold = T, color = "blue", font_size = 16)
 
 
  
