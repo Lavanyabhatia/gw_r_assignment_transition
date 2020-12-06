@@ -42,7 +42,8 @@ newnames %>%
   knitr::kable() %>%
   kable_classic() %>%
   kable_styling(bootstrap_options = "striped", full_width = F, position = "center", font_size = 12, fixed_thead = T) %>%
-  row_spec(0, bold = T, color = "blue", font_size = 15)
+  row_spec(0, bold = T, color = "blue", font_size = 15) %>%
+  column_spec(2, bold = T)
 
 
  
@@ -87,7 +88,15 @@ Show the top **smallest** agency review teams as of today - which we'll define h
 
 ```{r, echo=FALSE}
 
+agencycount_smallest <- agencycount_current %>%
+  arrange(current_count) %>%
+  filter(current_count < 5)
 
+agencycount_smallest %>%
+   knitr::kable(caption = "Smallest Agency Review Teams") %>%
+  kable_classic() %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "center", font_size = 12) %>%
+  row_spec(0, bold = T, color = "red", font_size = 15)
 
 
  
@@ -107,6 +116,14 @@ Below write code to show the new names added to the senior staff lists since the
 
 ```{r, echo=FALSE}
 
+newstaffnames <- anti_join(staff_data_current, staff_data_previous, by = "idstring")
+
+newstaffnames %>%
+  knitr::kable() %>%
+  kable_classic() %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "center", font_size = 12, fixed_thead = T) %>%
+  row_spec(0, bold = T, color = "pink", font_size = 15) %>%
+  column_spec(1, bold = T)
 
 
  
@@ -121,7 +138,7 @@ Add code to show the total number of people currently named to the WH senior sta
 
 ```{r, echo=FALSE}
 
-
+  
 
 
 
