@@ -22,11 +22,11 @@ source("02_scrape_nominees.R")
 #since the steps should be much the same.
 
 
-#Your code here#
+#######Your code here########
 
-
-
-
+#loading current data
+staff_data_current <- readRDS("processed_data/staff_data_scraped.rds")
+staff_data_current
 
 
 #### AGENCY TEAMS ##### --------------------------------------------------------
