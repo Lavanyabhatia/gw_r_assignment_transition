@@ -42,6 +42,11 @@ newstaffnames
 
 whseniorstaff <- staff_data_current
 
+#save results
+
+saveRDS(newstaffnames, "processed_data/newstaffnames.rds")
+saveRDS(whseniorstaff, "processed_data/whseniorstaff.rds")
+
 #### AGENCY TEAMS ##### --------------------------------------------------------
 
 
