@@ -33,7 +33,14 @@ staff_data_current
 staff_data_previous <- readRDS("archived_data/staff_data_archived_2020_11_24t14_00.rds")
 staff_data_previous
 
+#find new staff names
 
+newstaffnames <- anti_join(staff_data_current, staff_data_previous, by = "idstring")
+newstaffnames
+
+#new object with full dataset 
+
+whseniorstaff <- staff_data_current
 
 #### AGENCY TEAMS ##### --------------------------------------------------------
 
